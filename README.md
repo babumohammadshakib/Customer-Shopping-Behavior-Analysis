@@ -19,13 +19,13 @@ Use this as the suggested structure; change folder and file names to match the f
 Customer-Shopping-Behavior-Analysis/
 ├── README.md
 ├── notebooks/
-│   └── data\_cleaning\_and\_transformation.ipynb
+│   └── data\\\_cleaning\\\_and\\\_transformation.ipynb
 ├── sql/
-│   └── analysis\_queries.sql
+│   └── analysis\\\_queries.sql
 ├── powerbi/
-│   └── customer\_shopping\_dashboard.pbix
+│   └── customer\\\_shopping\\\_dashboard.pbix
 ├── images/
-│   └── dashboard\_preview.png
+│   └── dashboard\\\_preview.png
 └── data/
     └── (include only data you are permitted to share)
 ```
@@ -42,15 +42,18 @@ Question 1: Add the business question and a brief result.
 Question 2: Add the business question and a brief result.
 Question 3: Add the business question and a brief result.
 Dashboard Preview
-Add a screenshot of your finished Power BI dashboard to `images/dashboard\_preview.png`, then replace this note with the image embed below:
+Add a screenshot of your finished Power BI dashboard to `images/dashboard\\\_preview.png`, then replace this note with the image embed below:
 ```markdown
-!\[Power BI dashboard preview](images/dashboard\_preview.png)
+!\\\[Power BI dashboard preview](images/dashboard\\\_preview.png)
 ```
 Data and Privacy
 Credit the dataset's original source and respect its licence or terms of use.
 Do not upload passwords, `.env` files, private customer information, or confidential data.
 If the dataset is too large or cannot legally be redistributed, document where it came from instead of committing the data file.
 Before publishing, review notebook outputs as well as the code: outputs can contain personal data, connection details, or other sensitive information.
+Author
+Your Name  
+Add your LinkedIn or portfolio link here, if you want to share it.ersonal data, connection details, or other sensitive information.
 Author
 Your Name  
 Add your LinkedIn or portfolio link here, if you want to share it.
