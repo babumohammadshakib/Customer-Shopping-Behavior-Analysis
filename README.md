@@ -1,59 +1,68 @@
 Customer Shopping Behavior Analysis
+
 Project Overview
-This project demonstrates an end-to-end data analysis workflow using Python, MySQL, and Power BI. Python in Anaconda/Jupyter Notebook is used to prepare and transform the data, MySQL is used to store the prepared data and answer business questions with SQL queries, and Power BI is used to build an interactive dashboard.
+
+In this project, I analyzed customer shopping behavior using Python, MySQL, and Power BI. I used Python in Anaconda/Jupyter Notebook to explore, clean, and transform the dataset. I then loaded the prepared data into MySQL, used SQL queries to examine customer and purchase information, and built a dashboard in Power BI to present the data visually.
+
 Tools and Technologies
-Python — data preparation and transformation
-Anaconda and Jupyter Notebook — Python environment and notebook workflow
-MySQL — storing and querying the prepared data
-MySQL Workbench — writing and running SQL queries (if used in this project)
-Microsoft Power BI Desktop — dashboard and visual reporting
-Project Workflow
-Inspect the data: review the source data, its columns, data types, and quality issues.
-Transform the data with Python: perform the cleaning and transformations recorded in the notebook.
-Load the prepared data into MySQL: import the transformed data into the database and confirm that the table and row counts look correct.
-Analyse with SQL: run SQL queries to answer questions about customers and shopping behaviour.
-Build the Power BI dashboard: connect Power BI to the prepared data and present the results with charts, cards, and filters.
-Repository Contents
-Use this as the suggested structure; change folder and file names to match the files you actually upload.
-```text
+
+- Python (Pandas): Data inspection, cleaning, and transformation
+- Anaconda and Jupyter Notebook: Python environment and analysis workflow
+- MySQL: Storage and querying of the prepared dataset
+- MySQL Workbench: Writing and running SQL queries
+- Microsoft Power BI Desktop: Interactive dashboard and visual reporting
+  
+Dataset
+
+I used the Customer Shopping Trends Dataset from Kaggle.
+- Source: Customer Shopping Trends Dataset on Kaggle
+- Raw dataset size: 3,900 records and 18 columns
+- Main information: Customer age and gender, purchased item and category, purchase amount, location, season, review rating, subscription status, shipping type, discounts, previous purchases, payment method, and purchase frequency.
+  
+Data Preparation with Python
+
+I used the notebook customer_behavior.ipynb to inspect and prepare the dataset. The work includes:
+1. Loading the CSV data with Pandas.
+2. Reviewing the first records, column data types, summary statistics, and missing values.
+3. Filling missing Review Rating values with the median rating for the corresponding product category. The original dataset had 37 missing values in this column.
+4. Converting column names to lowercase and replacing spaces with underscores to make them easier to work with in SQL.
+5. Checking Discount Applied and Promo Code Used for duplicate information and removing promo_code_used when the two columns matched across the dataset.
+6. Creating an age_group feature using age quartiles.
+7. Creating a purchase_frequency_days feature to represent purchase frequency as a number of days.
+
+SQL Analysis with MySQL
+
+I loaded the prepared dataset into a MySQL table named consumer in the customer_b database. The SQL script Customer_P_R.sql contains the queries used for the analysis.
+The dataset supports analysis of customer demographics, spending, product categories, review ratings, subscriptions, discounts, shipping choices, payment methods, and purchase frequency.
+
+Power BI Dashboard
+<img width="1378" height="796" alt="image" src="https://github.com/user-attachments/assets/3dc9a7ef-7d25-4701-9a9b-583de291762a" />
+I used Microsoft Power BI Desktop to create the dashboard saved as BI_Project.pbix. The dashboard is the visual reporting component of the project and complements the data preparation in Python and the SQL analysis in MySQL.
+Project Files
+
+All project files are currently stored in the repository's root directory:
 Customer-Shopping-Behavior-Analysis/
 ├── README.md
-├── notebooks/
-│   └── data\\\_cleaning\\\_and\\\_transformation.ipynb
-├── sql/
-│   └── analysis\\\_queries.sql
-├── powerbi/
-│   └── customer\\\_shopping\\\_dashboard.pbix
-├── images/
-│   └── dashboard\\\_preview.png
-└── data/
-    └── (include only data you are permitted to share)
-```
-How to Reproduce the Analysis
-Download or obtain the dataset from its original source and check its licence and sharing conditions.
-Open the Jupyter notebook in Anaconda/Jupyter and run the cells in order. Update any file paths so they point to your local dataset.
-Import the transformed data into your local MySQL database using the process documented in the notebook or your SQL scripts.
-Open the SQL file in MySQL Workbench (or another MySQL client), select the correct database, and run the queries.
-Open the Power BI `.pbix` file in Power BI Desktop. Update its data-source settings to match your own local MySQL connection, then refresh the data.
-Note: Database names, table names, file paths, and connection settings may differ on another computer. Do not put database passwords or other credentials in the notebook, SQL file, README, or GitHub repository.
-Business Questions and Findings
-Document the questions answered by your SQL queries and Power BI visuals here. Add only findings that you have verified from your actual results. For example, you may describe customer segments or purchasing patterns if those are part of your analysis.
-Question 1: Add the business question and a brief result.
-Question 2: Add the business question and a brief result.
-Question 3: Add the business question and a brief result.
-Dashboard Preview
-Add a screenshot of your finished Power BI dashboard to `images/dashboard\\\_preview.png`, then replace this note with the image embed below:
-```markdown
-!\\\[Power BI dashboard preview](images/dashboard\\\_preview.png)
-```
-Data and Privacy
-Credit the dataset's original source and respect its licence or terms of use.
-Do not upload passwords, `.env` files, private customer information, or confidential data.
-If the dataset is too large or cannot legally be redistributed, document where it came from instead of committing the data file.
-Before publishing, review notebook outputs as well as the code: outputs can contain personal data, connection details, or other sensitive information.
+├── .gitignore
+├── customer_behavior.ipynb
+├── customer_shopping_behavior.csv
+├── Customer_P_R.sql
+└── BI_Project.pbix
+
+How to Reproduce the Project
+
+1. Download or clone this repository and make sure Python, Anaconda/Jupyter Notebook, MySQL, and Power BI Desktop are available on your computer.
+2. Open customer_behavior.ipynb in Jupyter Notebook and update the CSV file path to match your local copy of customer_shopping_behavior.csv.
+3. Run the notebook cells in order to inspect and prepare the dataset.
+4. Update the database connection settings in the notebook to match your own local MySQL setup. Use your own credentials locally; do not commit real passwords or other secrets to GitHub.
+5. Run Customer_P_R.sql in MySQL Workbench after selecting the appropriate database.
+6. Open BI_Project.pbix in Power BI Desktop. Update its data-source settings for your own environment if needed, then refresh the data.
+Notes
+- The notebook uses a local file path and local database settings that may need to be changed on another computer.
+- The raw CSV is included for transparency and reproducibility. Please refer to the original Kaggle dataset page for its terms and usage conditions.
+- The analysis and dashboard are based on the supplied dataset; results should be interpreted in the context of that dataset.
+  
 Author
-Your Name  
-Add your LinkedIn or portfolio link here, if you want to share it.ersonal data, connection details, or other sensitive information.
-Author
-Your Name  
-Add your LinkedIn or portfolio link here, if you want to share it.
+
+Mohammad Shakib Babu
+  https://www.linkedin.com/in/mohammad-shakib-babu-671643320/
